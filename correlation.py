@@ -5,11 +5,11 @@ pair_list = df.pair1.unique()
 tf_list = list(df.columns[2::].values)
 
 def correlation1(): 
-
-    pair_1 = ''
-    pair_2 = ''
-    t_frame = ''
     
+    pair_1 = ''
+	pair_2 = ''
+	t_frame = ''
+
     while pair_1 not in pair_list:
             pair_1 = input("\nEnter the first pair: ").upper()
                
@@ -42,6 +42,11 @@ def correlation1():
         print(f"\nThe correlation betweeen {pair_1} and {pair_2} is {corr}")
 
 def correlation2():
+
+	pair_1 = ''
+	pair_2 = ''
+	t_frame = ''
+
     while pair_1 not in pair_list:
             pair_1 = input("\nEnter the first pair: ").upper()
                
