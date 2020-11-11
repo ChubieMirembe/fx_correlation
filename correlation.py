@@ -10,6 +10,10 @@ pair_list = df.pair1.unique()
 tf_list = list(df.columns[2::].values)
 
 def correlation1():
+    '''
+    Function to compare 2 specific pairs
+    '''
+
     pair_1 = ''
     pair_2 = ''
     t_frame = ''
@@ -46,6 +50,9 @@ def correlation1():
         print(f"\nThe correlation betweeen {pair_1} and {pair_2} is {corr}")
 
 def correlation2():
+    '''
+    Function to check all the correlations with one pair
+    '''
 
     pair_1 = ''
     t_frame = ''
@@ -75,15 +82,39 @@ def correlation2():
             continue
 
 while True:
-    try:
-        number = int(input('How many pairs would you like to compare?: '))
-    except:
-        print("The input needs to be number between 2 and 10")
-        continue
-    else:
-        break
+    while True:
+        try:
+            number = int(input("What would you like to do?: \n(1) Compare 2 pairs \n (2) See all the correlations of one pair \n"))
+        except ValueError:
+            print("The input needs to be '1' or '2'")
+            continue
+        else:
+            if number in (1, 2):
+                break
+            else:
+                print("The input needs to be '1' or '2'")
 
-if number <= 2:
-    correlation1()
-else:
-    correlation2()
+    if number == 1:
+        correlation1()
+    elif number == 2:
+        correlation2()
+
+    while True:
+        try:
+            CHECKING = str(input("Would you like to check another pair? \n 'Yes' or 'No' \n"))
+        except ValueError:
+            print("You need to enter 'Yes' or 'No'")
+            continue
+        else:
+            if CHECKING[0].lower() == 'y' or CHECKING[0].lower() == 'n':
+                break
+            else:
+                print("You need to enter 'Yes' or 'No'")
+
+    if CHECKING[0].lower() == 'y':
+        CHECKING = True
+        continue
+    elif CHECKING[0].lower() == 'n':
+        print("\nGoodbye!")
+        break
+    
